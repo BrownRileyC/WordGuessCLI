@@ -2,15 +2,14 @@ var Word = require('./word');
 var Inquirer = require('inquirer');
 
 var wordArray = ['HELLO', 'GOODBYE', 'FINAL', 'WHEAT', 'COFFEE', 'DESERT', 'DESSERT', 'DINNER', 'COOKING', 'COMPUTER', 'FOREVER', 'CRACKER', 'SOMETHING', 'GAMEPLAY', 'CLICKER', 'NOBODY'];
-var guesses = 3;
+
+var guesses = 5;
 var selectedWord = wordArray[Math.floor(Math.random() * wordArray.length)];
-
-
 var newWord = new Word(selectedWord);
 
 var startGame = function () {
     selectedWord = wordArray[Math.floor(Math.random() * wordArray.length)];
-    guesses = 10;
+    guesses = 5;
 
     newWord = new Word(selectedWord);
 
@@ -19,24 +18,26 @@ var startGame = function () {
     newWord.makeLetters();
 
     var firstDisplay = newWord.toString();
-    console.log(firstDisplay+'\r\n');
+    console.log(firstDisplay + '\r\n');
 
     playGame();
 }
 
 var playGame = function () {
     if (guesses > 0) {
+        var correct = false;
         Inquirer.prompt({
             name: 'userInput',
             message: 'Guess a letter\r\nYou have ' + guesses + ' chances to miss remaining'
         }).then(function (response) {
-            var preguess = newWord.toString();
             for (let k = 0; k < newWord.letters.length; k++) {
+                if (response.userInput.toUpperCase() === newWord.letters[k].str) {
+                    correct = true;
+                }
                 newWord.letters[k].guess(response.userInput.toUpperCase());
             }
-            var postguess = newWord.toString();
-            console.log(postguess+'\r\n')
-            if (preguess === postguess) {
+            console.log(newWord.toString() + '\r\n')
+            if (!correct) {
                 guesses--
             }
             if (newWord.victory) {
@@ -45,7 +46,7 @@ var playGame = function () {
                     message: 'Would you like to play again?',
                     type: 'confirm'
                 }).then(function (response) {
-                    if (response.answer){
+                    if (response.answer) {
                         startGame();
                     } else {
                         console.log('Thanks for playing');
@@ -62,7 +63,7 @@ var playGame = function () {
             message: 'Would you like to play again?',
             type: 'confirm'
         }).then(function (response) {
-            if (response.answer){
+            if (response.answer) {
                 startGame();
             } else {
                 console.log('Thanks for playing');

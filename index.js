@@ -7,6 +7,10 @@ var guesses = 5;
 var selectedWord = wordArray[Math.floor(Math.random() * wordArray.length)];
 var newWord = new Word(selectedWord);
 
+var validateInput = function(name) {
+    return name.length === 1;
+};
+
 var startGame = function () {
     selectedWord = wordArray[Math.floor(Math.random() * wordArray.length)];
     guesses = 5;
@@ -28,7 +32,8 @@ var playGame = function () {
         var correct = false;
         Inquirer.prompt({
             name: 'userInput',
-            message: 'Guess a letter\r\nYou have ' + guesses + ' chances to miss remaining'
+            message: 'Guess a letter\r\nYou have ' + guesses + ' chances to miss remaining',
+            validate: validateInput
         }).then(function (response) {
             for (let k = 0; k < newWord.letters.length; k++) {
                 if (response.userInput.toUpperCase() === newWord.letters[k].str) {

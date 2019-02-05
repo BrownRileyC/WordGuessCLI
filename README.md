@@ -18,40 +18,40 @@ This application only requires the inquirer module, but it is even easier!
 
 All you must do is enter the command 'npm install' in the same directory and it will fetch the appropriate module for you.
 
-![npmInstall](./Images/npminstall.PNG)
+![npmInstall](./Images/npmInstall.PNG)
 
 Now to get the game going you just need to enter the command 'node index.js' on the command line and the game will begin.
 
-![startGame](./images/Start_game.PNG)
+![startGame](./Images/Start_game.PNG)
 
 # Playing the Game
 Now that the game has begun the user enters a letter for their guess and hits enter.  The application checks the letter against the randomly selected word and displays if the user was correct or incorrect.
 
 Here the user guessed incorrectly:
 
-![IncorrectGuess](./images/Incorrect_Guess.PNG)
+![IncorrectGuess](./Images/Incorrect_Guess.PNG)
 
 Here the user missed another guess but then they got one right:
 
-![missedandCorrect](./images/missedAndCorrect.PNG)
+![missedandCorrect](./Images/missedAndCorrect.PNG)
 
 After each guess the game displays the number of chances to miss the user has remaining.
 
 Here we see the user manages to correctly guess the final letters:
 
-![victory](./images/capitalAndLowercaseVictory.PNG)
+![victory](./Images/capitalAndLowercaseVictory.PNG)
 
 Now we see the user decides to play again:
 
-![newGame](./images/NewGame.PNG)
+![newGame](./Images/NewGame.PNG)
 
 This time the user fails to get the word before they lose all five chances:
 
-![gameLost](./images/GameLost.PNG)
+![gameLost](./Images/GameLost.PNG)
 
 and they decide not to continue the game:
 
-![GameOver](./images/DoNotContinue.PNG)
+![GameOver](./Images/DoNotContinue.PNG)
 
 # Validation and Simplifying Input
 As you may have noticed from the images the user is able to enter both capital and lowercase letters with no problem.
@@ -64,11 +64,11 @@ This is done by adding a validation option to the inquirer prompt.
 
 If a user tries to enter more than one letter at once:
 
-![multiletters](./images/MultipleLetters.PNG)
+![multiletters](./Images/MultipleLetters.PNG)
 
 It responds by throwing a small error and prompting the player to try again, all without taking away a chance to miss from them.
 
-![validated](./images/Validated.PNG)
+![validated](./Images/Validated.PNG)
 
 Now the same validation option on the prompt checks to see whether the user entered a number, and if they did it throws that same error and asks for the user to enter the correct type of input.
 

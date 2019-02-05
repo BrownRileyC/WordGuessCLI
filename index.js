@@ -17,7 +17,7 @@ var startGame = function () {
 
     newWord = new Word(selectedWord);
 
-    console.log('Your word has been Selected\r\nThree missed guesses and you lose\r\nGood luck!\r\n');
+    console.log('Your word has been Selected\r\nFive missed guesses and you lose\r\nGood luck!\r\n');
 
     newWord.makeLetters();
 

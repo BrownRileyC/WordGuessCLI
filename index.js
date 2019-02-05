@@ -8,7 +8,16 @@ var selectedWord = wordArray[Math.floor(Math.random() * wordArray.length)];
 var newWord = new Word(selectedWord);
 
 var validateInput = function(name) {
-    return name.length === 1;
+    if (isNaN(parseInt(name))) {
+        if (name.length === 1) {
+            return true;
+        } else {
+            return 'Please enter only one letter';
+        }
+    } else {
+        return 'Please enter a single letter';
+    }
+    
 };
 
 var startGame = function () {
@@ -32,7 +41,7 @@ var playGame = function () {
         var correct = false;
         Inquirer.prompt({
             name: 'userInput',
-            message: 'Guess a letter\r\nYou have ' + guesses + ' chances to miss remaining',
+            message: 'You have ' + guesses + ' chances to miss remaining\r\nGuess a letter',
             validate: validateInput
         }).then(function (response) {
             for (let k = 0; k < newWord.letters.length; k++) {

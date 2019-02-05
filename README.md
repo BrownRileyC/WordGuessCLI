@@ -18,7 +18,7 @@ This application only requires the inquirer module, but it is even easier!
 
 All you must do is enter the command 'npm install' in the same directory and it will fetch the appropriate module for you.
 
-![npmInstall](./images/npminstall.PNG)
+![npmInstall](./Images/npminstall.PNG)
 
 Now to get the game going you just need to enter the command 'node index.js' on the command line and the game will begin.
 
